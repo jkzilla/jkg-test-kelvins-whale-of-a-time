@@ -54,8 +54,8 @@ jobs:
           name: Publish image
           command: |
             # login credentials should be provided via context or project environment variables.
-            echo $DOCKER_PASSWORD | docker login $DOCKER_REGISTRY --username $DOCKER_LOGIN --password-stdin
-
+            # echo $DOCKER_PASSWORD | docker login $DOCKER_REGISTRY --username $DOCKER_LOGIN --password-stdin THIS DID NOT WORK FOR ME
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
             docker image push --all-tags "${DOCKER_REGISTRY}/${DOCKER_USER}/<< parameters.image_name >>"
 
   docker_compose_tests:
