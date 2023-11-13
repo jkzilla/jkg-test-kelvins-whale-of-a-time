@@ -20,9 +20,7 @@ jobs:
         default: 'latest'
     steps:
       - checkout
-      - setup_remote_docker:
-          # https://circleci.com/docs/2.0/building-docker-images/#docker-version
-          version: 20.10.18
+      - setup_remote_docker
       - run:
           name: Build image
           command: |
